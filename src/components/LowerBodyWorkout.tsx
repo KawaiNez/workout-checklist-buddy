@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { ArrowLeft, RotateCcw } from 'lucide-react';
 import { ExerciseCard } from '@/components/ExerciseCard';
@@ -89,7 +88,7 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
         </Button>
       </div>
 
-      <div className="grid gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {lowerBodyExercises.map((exercise, index) => {
           initializeExercise(exercise.name, exercise.sets);
           return (
