@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ArrowLeft, RotateCcw } from 'lucide-react';
+import { ArrowLeft, RotateCcw, Zap } from 'lucide-react';
 import { ExerciseCard } from '@/components/ExerciseCard';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 interface LowerBodyWorkoutProps {
   onBack: () => void;
@@ -86,6 +87,79 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
           <RotateCcw className="w-4 h-4 mr-2" />
           Reset All
         </Button>
+      </div>
+
+      <div className="flex justify-center mb-6">
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button className="bg-orange-500 hover:bg-orange-600 text-white">
+              <Zap className="w-4 h-4 mr-2" />
+              Warm up
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-bold text-center mb-4">
+                Lower Body and Core Warm-Up Routine
+              </DialogTitle>
+            </DialogHeader>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold mb-3 text-blue-600">Dynamic Stretching:</h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start">
+                    <span className="text-blue-500 mr-2">•</span>
+                    <span><strong>Leg Swings:</strong> 10 reps each leg, forward and backward.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-500 mr-2">•</span>
+                    <span><strong>Hip Circles:</strong> 10 reps clockwise and counterclockwise.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-500 mr-2">•</span>
+                    <span><strong>Walking Lunges:</strong> 10 lunges per leg.</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold mb-3 text-green-600">Activation Exercises:</h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">•</span>
+                    <span><strong>Bodyweight Squats:</strong> 2 sets of 12 reps.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">•</span>
+                    <span><strong>Hip Bridges:</strong> 2 sets of 12 reps.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-500 mr-2">•</span>
+                    <span><strong>Plank with Shoulder Taps:</strong> 2 sets of 15 taps (each side).</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-semibold mb-3 text-purple-600">Stretching:</h3>
+                <ul className="space-y-2 ml-4">
+                  <li className="flex items-start">
+                    <span className="text-purple-500 mr-2">•</span>
+                    <span><strong>Hamstring Stretch:</strong> Hold for 30 seconds each leg.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-500 mr-2">•</span>
+                    <span><strong>Quad Stretch:</strong> Hold for 30 seconds each leg.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-500 mr-2">•</span>
+                    <span><strong>Calf Stretch:</strong> Hold for 30 seconds each leg.</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
