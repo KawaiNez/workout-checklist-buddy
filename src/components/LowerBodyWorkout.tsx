@@ -69,7 +69,7 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
           <h1 className="text-4xl font-bold text-white mb-2">Lower Body + Core</h1>
           <p className="text-gray-300">Glutes, Legs & Core</p>
           <div className="mt-2">
-            <div className="text-sm text-gray-400">Progress: {getTotalProgress()}%</div>
+            <div className="text-base text-gray-400">Progress: {getTotalProgress()}%</div>
             <div className="w-32 bg-gray-700 rounded-full h-2 mx-auto mt-1">
               <div 
                 className="bg-gradient-to-r from-blue-400 to-purple-500 h-2 rounded-full transition-all duration-300"
