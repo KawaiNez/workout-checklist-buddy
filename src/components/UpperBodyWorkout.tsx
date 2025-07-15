@@ -69,7 +69,7 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
           <h1 className="text-4xl font-bold text-white mb-2">Upper Body Routine</h1>
           <p className="text-gray-300">Shoulders, Biceps & Triceps</p>
           <div className="mt-2">
-            <div className="text-xl text-gray-400">Progress: {getTotalProgress()}%</div>
+            <div className="text-3xl text-white">Progress: {getTotalProgress()}%</div>
             <div className="w-32 bg-gray-700 rounded-full h-2 mx-auto mt-1">
               <div 
                 className="bg-gradient-to-r from-orange-400 to-pink-500 h-2 rounded-full transition-all duration-300"
