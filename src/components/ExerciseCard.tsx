@@ -28,7 +28,7 @@ export const ExerciseCard = ({ exercise, completedSets, onSetToggle, color }: Ex
           </p>
         </div>
         <div className="text-right">
-          <div className="text-sm text-gray-400 mb-1">
+          <div className="text-xl text-white mb-1">
             {completedCount}/{exercise.sets} sets
           </div>
           <div className="w-20 bg-gray-700 rounded-full h-2">
