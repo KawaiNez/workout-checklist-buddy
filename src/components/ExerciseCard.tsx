@@ -22,7 +22,7 @@ export const ExerciseCard = ({ exercise, completedSets, onSetToggle, color }: Ex
     <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h3 className="text-xl font-semibold text-white mb-1">{exercise.name}</h3>
+          <h3 className="text-2xl font-semibold text-white mb-1">{exercise.name}</h3>
           <p className="text-sm text-gray-300">
             {exercise.sets} sets × {exercise.reps} reps
           </p>
