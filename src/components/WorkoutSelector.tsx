@@ -31,7 +31,7 @@ export const WorkoutSelector = ({ onWorkoutSelect }: WorkoutSelectorProps) => {
             Shoulders, Biceps & Triceps
           </p>
           <div className="text-sm text-white/80">
-            7 exercises • 21 total sets
+            8 exercises • 24 total sets
           </div>
         </div>
 
