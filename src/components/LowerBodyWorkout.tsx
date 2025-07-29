@@ -80,14 +80,7 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
           </div>
         </div>
 
-        <Button
-          onClick={handleResetAll}
-          variant="ghost"
-          className="text-white hover:bg-white/20"
-        >
-          <RotateCcw className="w-4 h-4 mr-2" />
-          Reset All
-        </Button>
+        <div></div>
       </div>
 
       <div className="flex justify-center mb-6">
