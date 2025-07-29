@@ -17,6 +17,7 @@ const upperBodyExercises = [
   { name: 'Shoulder Press', sets: 3, reps: 12 },
   { name: 'Arnold Press', sets: 3, reps: 12 },
   { name: 'Dumbbell Shrug', sets: 3, reps: 12 },
+  { name: 'Forearm Twist', sets: 3, reps: 12 },
   { name: 'Dumbbell Bent Over Row', sets: 3, reps: 12 },
 ];
 
@@ -81,14 +82,7 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
           </div>
         </div>
 
-        <Button
-          onClick={handleResetAll}
-          variant="ghost"
-          className="text-white hover:bg-white/20"
-        >
-          <RotateCcw className="w-4 h-4 mr-2" />
-          Reset All
-        </Button>
+        <div></div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
