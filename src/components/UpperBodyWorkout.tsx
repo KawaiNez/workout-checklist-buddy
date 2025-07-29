@@ -15,6 +15,7 @@ const upperBodyExercises = [
   { name: 'Triceps Kickbacks', sets: 3, reps: 12 },
   { name: 'Skull Crusher', sets: 3, reps: 12 },
   { name: 'Shoulder Press', sets: 3, reps: 12 },
+  { name: 'Arnold Press', sets: 3, reps: 12 },
   { name: 'Dumbbell Shrug', sets: 3, reps: 12 },
   { name: 'Dumbbell Bent Over Row', sets: 3, reps: 12 },
 ];
