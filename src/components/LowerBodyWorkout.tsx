@@ -15,6 +15,7 @@ const lowerBodyExercises = [
   { name: 'RDL', sets: 3, reps: '10-12' },
   { name: 'Side Leg Raise', sets: 3, reps: 12 },
   { name: 'Calf Raise', sets: 3, reps: 15 },
+  { name: 'Leg Raises', sets: 3, reps: 15 },
   { name: 'Russian Twists', sets: 3, reps: '20 (10 each side)' },
   { name: 'Plank Hold', sets: 3, reps: '30-45 sec' },
 ];
