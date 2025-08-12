@@ -9,7 +9,7 @@ interface LowerBodyWorkoutProps {
 }
 
 const lowerBodyExercises = [
-  { name: 'Squats', sets: 4, reps: '12-15' },
+  { name: 'Squats', sets: 3, reps: '12-15' },
   { name: 'Leg Extensions', sets: 3, reps: 15 },
   { name: 'Glute Bridges/Hip Thrusts', sets: 4, reps: '15-20' },
   { name: 'RDL', sets: 3, reps: '10-12' },

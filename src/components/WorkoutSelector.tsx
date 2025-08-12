@@ -46,9 +46,9 @@ export const WorkoutSelector = ({ onWorkoutSelect }: WorkoutSelectorProps) => {
           <p className="text-white/90 mb-4">
             Glutes, Legs & Core
           </p>
-          <div className="text-sm text-white/80">
-            8 exercises • 25 total sets
-          </div>
+           <div className="text-sm text-white/80">
+             9 exercises • 28 total sets
+           </div>
         </div>
       </div>
     </div>
