@@ -1,52 +1,64 @@
-import { useState } from 'react';
-import { ArrowLeft, Zap } from 'lucide-react';
-import { ExerciseCard } from '@/components/ExerciseCard';
-import { RestTimer } from '@/components/RestTimer';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { useState } from "react";
+import { ArrowLeft, Zap } from "lucide-react";
+import { ExerciseCard } from "@/components/ExerciseCard";
+import { RestTimer } from "@/components/RestTimer";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 interface LowerBodyWorkoutProps {
   onBack: () => void;
 }
 
 const lowerBodyExercises = [
-  { name: 'Glute Bridges/Hip Thrusts', sets: 3, reps: '15-20' },
-  { name: 'Dumbbell Leg Raises', sets: 3, reps: 15 },
-  { name: 'Russian Twists', sets: 3, reps: '20 (10 each side)' },
-  { name: 'Cable crunches with dumbbell', sets: 3, reps: 12 },
-  { name: 'Leg ext/Bulgarian split squats', sets: 3, reps: 15 },
-  { name: 'RDL', sets: 3, reps: '10-12' },
-  { name: 'Squats', sets: 3, reps: '12-15' },
-  { name: 'Side Leg Raise', sets: 3, reps: 12 },
-  { name: 'Calf Raise', sets: 3, reps: 15 },
-  { name: 'Plank Hold', sets: 3, reps: '30-45 sec' },
+  { name: "Glute Bridges/Hip Thrusts", sets: 3, reps: "15-20" },
+  { name: "Dumbbell Leg Raises", sets: 3, reps: 15 },
+  { name: "Russian Twists", sets: 3, reps: "20 (10 each side)" },
+  { name: "Cable crunches with dumbbell", sets: 3, reps: 12 },
+  { name: "Leg ext/Bulgarian split squats", sets: 3, reps: 15 },
+  { name: "RDL", sets: 3, reps: "10-12" },
+  { name: "Squats", sets: 3, reps: "12-15" },
+  { name: "Side Leg Raise", sets: 3, reps: 12 },
+  { name: "Calf Raise", sets: 3, reps: 15 },
+  { name: "Plank Hold", sets: 3, reps: "30-45 sec" },
 ];
 
 const absExercises = [
-  'Dumbbell Leg Raises',
-  'Russian Twists', 
-  'Cable crunches with dumbbell',
-  'Plank Hold'
+  "Dumbbell Leg Raises",
+  "Russian Twists",
+  "Cable crunches with dumbbell",
+  "Plank Hold",
 ];
 
 export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
-  const [completedSets, setCompletedSets] = useState<Record<string, boolean[]>>({});
+  const [completedSets, setCompletedSets] = useState<Record<string, boolean[]>>(
+    {}
+  );
   const [showTimer, setShowTimer] = useState(false);
 
   const initializeExercise = (exerciseName: string, setCount: number) => {
     if (!completedSets[exerciseName]) {
-      setCompletedSets(prev => ({
+      setCompletedSets((prev) => ({
         ...prev,
-        [exerciseName]: new Array(setCount).fill(false)
+        [exerciseName]: new Array(setCount).fill(false),
       }));
     }
   };
 
   const getCompletedAbsExercises = () => {
-    return absExercises.filter(exerciseName => {
+    return absExercises.filter((exerciseName) => {
       const sets = completedSets[exerciseName] || [];
-      const exercise = lowerBodyExercises.find(ex => ex.name === exerciseName);
-      return sets.length === exercise?.sets && sets.every(set => set === true);
+      const exercise = lowerBodyExercises.find(
+        (ex) => ex.name === exerciseName
+      );
+      return (
+        sets.length === exercise?.sets && sets.every((set) => set === true)
+      );
     });
   };
 
@@ -57,20 +69,24 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
   };
 
   const handleSetToggle = (exerciseName: string, setIndex: number) => {
-    if (absExercises.includes(exerciseName) && isAbsExerciseDisabled(exerciseName)) {
+    if (
+      absExercises.includes(exerciseName) &&
+      isAbsExerciseDisabled(exerciseName)
+    ) {
       return;
     }
-    
+
     const currentSets = completedSets[exerciseName] || [];
     const wasCompleted = currentSets[setIndex];
-    
-    setCompletedSets(prev => ({
+
+    setCompletedSets((prev) => ({
       ...prev,
-      [exerciseName]: prev[exerciseName]?.map((completed, index) => 
-        index === setIndex ? !completed : completed
-      ) || []
+      [exerciseName]:
+        prev[exerciseName]?.map((completed, index) =>
+          index === setIndex ? !completed : completed
+        ) || [],
     }));
-    
+
     if (!wasCompleted) {
       setShowTimer(true);
     }
@@ -78,7 +94,9 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
 
   const getTotalProgress = () => {
     const totalSets = lowerBodyExercises.reduce((sum, ex) => sum + ex.sets, 0);
-    const completedCount = Object.values(completedSets).flat().filter(Boolean).length;
+    const completedCount = Object.values(completedSets)
+      .flat()
+      .filter(Boolean).length;
     return Math.round((completedCount / totalSets) * 100);
   };
 
@@ -100,12 +118,16 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
 
         {/* Centered Title, Subtitle & Progress */}
         <div className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold text-white mb-2">Lower Body + Core</h1>
+          <h1 className="text-4xl font-bold text-white mb-2">
+            Lower Body + Core
+          </h1>
           <p className="text-gray-300">Glutes, Legs & Core</p>
           <div className="mt-2">
-            <div className="text-3xl text-white">Progress: {getTotalProgress()}%</div>
+            <div className="text-3xl text-white">
+              Progress: {getTotalProgress()}%
+            </div>
             <div className="w-32 bg-gray-700 rounded-full h-2 mx-auto mt-1">
-              <div 
+              <div
                 className="bg-gradient-to-r from-blue-400 to-purple-500 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${getTotalProgress()}%` }}
               />
@@ -129,9 +151,107 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
                 Lower Body and Core Warm-Up Routine
               </DialogTitle>
             </DialogHeader>
-            {/* Warm-up content unchanged */}
-          </DialogContent>
-        </Dialog>
+            <div className="space-y-6">
+              {" "}
+              <div>
+                {" "}
+                <h3 className="text-lg font-semibold mb-3 text-blue-600">
+                  Dynamic Stretching:
+                </h3>{" "}
+                <ul className="space-y-2 ml-4">
+                  {" "}
+                  <li className="flex items-start">
+                    {" "}
+                    <span className="text-blue-500 mr-2">•</span>{" "}
+                    <span>
+                      <strong>Leg Swings:</strong> 10 reps each leg, forward and
+                      backward.
+                    </span>{" "}
+                  </li>{" "}
+                  <li className="flex items-start">
+                    {" "}
+                    <span className="text-blue-500 mr-2">•</span>{" "}
+                    <span>
+                      <strong>Hip Circles:</strong> 10 reps clockwise and
+                      counterclockwise.
+                    </span>{" "}
+                  </li>{" "}
+                  <li className="flex items-start">
+                    {" "}
+                    <span className="text-blue-500 mr-2">•</span>{" "}
+                    <span>
+                      <strong>Walking Lunges:</strong> 10 lunges per leg.
+                    </span>{" "}
+                  </li>{" "}
+                </ul>{" "}
+              </div>{" "}
+              <div>
+                {" "}
+                <h3 className="text-lg font-semibold mb-3 text-green-600">
+                  Activation Exercises:
+                </h3>{" "}
+                <ul className="space-y-2 ml-4">
+                  {" "}
+                  <li className="flex items-start">
+                    {" "}
+                    <span className="text-green-500 mr-2">•</span>{" "}
+                    <span>
+                      <strong>Bodyweight Squats:</strong> 2 sets of 12 reps.
+                    </span>{" "}
+                  </li>{" "}
+                  <li className="flex items-start">
+                    {" "}
+                    <span className="text-green-500 mr-2">•</span>{" "}
+                    <span>
+                      <strong>Hip Bridges:</strong> 2 sets of 12 reps.
+                    </span>{" "}
+                  </li>{" "}
+                  <li className="flex items-start">
+                    {" "}
+                    <span className="text-green-500 mr-2">•</span>{" "}
+                    <span>
+                      <strong>Plank with Shoulder Taps:</strong> 2 sets of 15
+                      taps (each side).
+                    </span>{" "}
+                  </li>{" "}
+                </ul>{" "}
+              </div>{" "}
+              <div>
+                {" "}
+                <h3 className="text-lg font-semibold mb-3 text-purple-600">
+                  Stretching:
+                </h3>{" "}
+                <ul className="space-y-2 ml-4">
+                  {" "}
+                  <li className="flex items-start">
+                    {" "}
+                    <span className="text-purple-500 mr-2">•</span>{" "}
+                    <span>
+                      <strong>Hamstring Stretch:</strong> Hold for 30 seconds
+                      each leg.
+                    </span>{" "}
+                  </li>{" "}
+                  <li className="flex items-start">
+                    {" "}
+                    <span className="text-purple-500 mr-2">•</span>{" "}
+                    <span>
+                      <strong>Quad Stretch:</strong> Hold for 30 seconds each
+                      leg.
+                    </span>{" "}
+                  </li>{" "}
+                  <li className="flex items-start">
+                    {" "}
+                    <span className="text-purple-500 mr-2">•</span>{" "}
+                    <span>
+                      <strong>Calf Stretch:</strong> Hold for 30 seconds each
+                      leg.
+                    </span>{" "}
+                  </li>{" "}
+                </ul>{" "}
+              </div>{" "}
+            </div>{" "}
+          </DialogContent>{" "}
+        </Dialog>{" "}
       </div>
 
       {/* Exercise Cards */}
@@ -143,9 +263,15 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
               key={exercise.name}
               exercise={exercise}
               completedSets={completedSets[exercise.name] || []}
-              onSetToggle={(setIndex) => handleSetToggle(exercise.name, setIndex)}
+              onSetToggle={(setIndex) =>
+                handleSetToggle(exercise.name, setIndex)
+              }
               color="from-blue-500 to-purple-600"
-              disabled={absExercises.includes(exercise.name) ? isAbsExerciseDisabled(exercise.name) : false}
+              disabled={
+                absExercises.includes(exercise.name)
+                  ? isAbsExerciseDisabled(exercise.name)
+                  : false
+              }
             />
           );
         })}

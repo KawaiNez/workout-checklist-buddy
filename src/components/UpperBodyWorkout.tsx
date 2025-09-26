@@ -1,6 +1,5 @@
-
 import { useState } from 'react';
-import { ArrowLeft, RotateCcw } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { ExerciseCard } from '@/components/ExerciseCard';
 import { RestTimer } from '@/components/RestTimer';
 import { Button } from '@/components/ui/button';
@@ -38,26 +37,17 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
   const handleSetToggle = (exerciseName: string, setIndex: number) => {
     const currentSets = completedSets[exerciseName] || [];
     const wasCompleted = currentSets[setIndex];
-    
+
     setCompletedSets(prev => ({
       ...prev,
-      [exerciseName]: prev[exerciseName]?.map((completed, index) => 
+      [exerciseName]: prev[exerciseName]?.map((completed, index) =>
         index === setIndex ? !completed : completed
       ) || []
     }));
-    
-    // Show timer when completing a set (not when unchecking)
+
     if (!wasCompleted) {
       setShowTimer(true);
     }
-  };
-
-  const handleResetAll = () => {
-    const resetSets: Record<string, boolean[]> = {};
-    upperBodyExercises.forEach(exercise => {
-      resetSets[exercise.name] = new Array(exercise.sets).fill(false);
-    });
-    setCompletedSets(resetSets);
   };
 
   const getTotalProgress = () => {
@@ -69,35 +59,39 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
   return (
     <div className="max-w-4xl mx-auto">
       {showTimer && <RestTimer onClose={() => setShowTimer(false)} />}
-      <div className="flex items-center justify-between mb-8">
+
+      {/* Header - MATCHED TO LOWER BODY */}
+      <div className="relative flex items-center justify-center mb-8">
+        {/* Back button absolutely positioned on the left */}
         <Button
           onClick={onBack}
           variant="ghost"
-          className="text-white hover:bg-white/20"
+          className="absolute left-0 text-white hover:bg-white/20"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Selection
         </Button>
-        
-        <div className="text-center">
+
+        {/* Center block: title, subtitle, progress (identical structure/spacing) */}
+        <div className="flex flex-col items-center">
           <h1 className="text-4xl font-bold text-white mb-2">Upper Body Routine</h1>
           <p className="text-gray-300">Shoulders, Biceps & Triceps</p>
           <div className="mt-2">
             <div className="text-3xl text-white">Progress: {getTotalProgress()}%</div>
             <div className="w-32 bg-gray-700 rounded-full h-2 mx-auto mt-1">
-              <div 
+              <div
                 className="bg-gradient-to-r from-orange-400 to-pink-500 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${getTotalProgress()}%` }}
               />
             </div>
           </div>
         </div>
-
-        <div></div>
       </div>
+      {/* END Header */}
 
+      {/* Exercise Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {upperBodyExercises.map((exercise, index) => {
+        {upperBodyExercises.map((exercise) => {
           initializeExercise(exercise.name, exercise.sets);
           return (
             <ExerciseCard
