@@ -10,7 +10,7 @@ export const RestTimer = ({ onClose }: RestTimerProps) => {
 
   useEffect(() => {
     if (timeLeft <= 0) {
-      playAlarmSound(3); // Play alarm for 5 seconds
+      playMellowAlarm(3); // Play mellow alarm for 3 seconds
       const timeout = setTimeout(() => {
         onClose();
       }, 3000);
@@ -24,28 +24,24 @@ export const RestTimer = ({ onClose }: RestTimerProps) => {
     return () => clearInterval(timerInterval);
   }, [timeLeft, onClose]);
 
-  const playAlarmSound = (duration: number) => {
+  const playMellowAlarm = (duration: number) => {
     const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
 
-    const oscillator = audioContext.createOscillator();
+    const notes = [440, 523, 587, 659]; // A4, C5, D5, E5 for xylophone vibe
+    const noteDuration = 0.25; // 250ms per note
     const gainNode = audioContext.createGain();
-
-    oscillator.connect(gainNode);
     gainNode.connect(audioContext.destination);
 
-    // Create a siren-like "beep-beep" effect by sweeping frequency
-    oscillator.type = "square";
-    oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
+    gainNode.gain.setValueAtTime(0.2, audioContext.currentTime); // VOLUME
 
-    for (let i = 0; i < duration * 2; i++) {
-      const t = audioContext.currentTime + i * 0.25; // every 0.25s switch
-      oscillator.frequency.setValueAtTime(i % 2 === 0 ? 800 : 500, t);
-      gainNode.gain.setValueAtTime(0.21, t); //decrease volume
-      gainNode.gain.setValueAtTime(0.0, t + 0.2); // short beep
-    }
-
-    oscillator.start();
-    oscillator.stop(audioContext.currentTime + duration);
+    notes.forEach((freq, i) => {
+      const osc = audioContext.createOscillator();
+      osc.type = 'sine'; // smooth, mellow tone
+      osc.frequency.setValueAtTime(freq, audioContext.currentTime + i * noteDuration);
+      osc.connect(gainNode);
+      osc.start(audioContext.currentTime + i * noteDuration);
+      osc.stop(audioContext.currentTime + (i + 1) * noteDuration);
+    });
   };
 
   const progressPercentage = ((30 - timeLeft) / 30) * 100;
