@@ -127,8 +127,8 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
               Progress: {getTotalProgress()}%
             </div>
             <div className="w-24 sm:w-32 bg-gray-700 rounded-full h-2 mx-auto mt-1">
-              <div
-                className="bg-gradient-to-r from-blue-400 to-purple-500 h-2 rounded-full transition-all duration-300"
+            <div
+                className="bg-gradient-to-r from-purple-400 to-violet-500 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${getTotalProgress()}%` }}
               />
             </div>
@@ -140,10 +140,10 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
       <div className="flex justify-center mb-6">
         <Dialog>
           <DialogTrigger asChild>
-            <Button className="bg-orange-500 hover:bg-orange-600 text-white w-full sm:w-auto">
-              <Zap className="w-4 h-4 mr-2" />
-              Warm up
-            </Button>
+          <Button className="bg-teal-500 hover:bg-teal-600 text-white w-full sm:w-auto">
+            <Zap className="w-4 h-4 mr-2" />
+            Warm up
+          </Button>
           </DialogTrigger>
           <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
             <DialogHeader>
@@ -266,7 +266,7 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
               onSetToggle={(setIndex) =>
                 handleSetToggle(exercise.name, setIndex)
               }
-              color="from-blue-500 to-purple-600"
+              color="from-purple-500 to-violet-600"
               disabled={
                 absExercises.includes(exercise.name)
                   ? isAbsExerciseDisabled(exercise.name)

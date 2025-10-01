@@ -79,8 +79,8 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
           <div className="mt-2">
             <div className="text-xl sm:text-2xl md:text-3xl text-white">Progress: {getTotalProgress()}%</div>
             <div className="w-24 sm:w-32 bg-gray-700 rounded-full h-2 mx-auto mt-1">
-              <div
-                className="bg-gradient-to-r from-orange-400 to-pink-500 h-2 rounded-full transition-all duration-300"
+            <div
+                className="bg-gradient-to-r from-cyan-400 to-teal-500 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${getTotalProgress()}%` }}
               />
             </div>
@@ -99,7 +99,7 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
               exercise={exercise}
               completedSets={completedSets[exercise.name] || []}
               onSetToggle={(setIndex) => handleSetToggle(exercise.name, setIndex)}
-              color="from-orange-500 to-pink-600"
+              color="from-cyan-500 to-teal-600"
             />
           );
         })}
