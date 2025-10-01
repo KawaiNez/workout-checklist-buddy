@@ -57,28 +57,28 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-4xl mx-auto px-4">
       {showTimer && <RestTimer onClose={() => setShowTimer(false)} />}
 
       {/* Header - MATCHED TO LOWER BODY */}
-      <div className="relative flex items-center justify-center mb-8">
-        {/* Back button absolutely positioned on the left */}
+      <div className="relative flex flex-col sm:flex-row items-center justify-center mb-6 sm:mb-8 gap-4">
+        {/* Back button */}
         <Button
           onClick={onBack}
           variant="ghost"
-          className="absolute left-0 text-white hover:bg-white/20"
+          className="sm:absolute sm:left-0 text-white hover:bg-white/20 w-full sm:w-auto"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Selection
         </Button>
 
-        {/* Center block: title, subtitle, progress (identical structure/spacing) */}
-        <div className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold text-white mb-2">Upper Body Routine</h1>
-          <p className="text-gray-300">Shoulders, Biceps & Triceps</p>
+        {/* Center block: title, subtitle, progress */}
+        <div className="flex flex-col items-center text-center">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">Upper Body Routine</h1>
+          <p className="text-sm sm:text-base text-gray-300">Shoulders, Biceps & Triceps</p>
           <div className="mt-2">
-            <div className="text-3xl text-white">Progress: {getTotalProgress()}%</div>
-            <div className="w-32 bg-gray-700 rounded-full h-2 mx-auto mt-1">
+            <div className="text-xl sm:text-2xl md:text-3xl text-white">Progress: {getTotalProgress()}%</div>
+            <div className="w-24 sm:w-32 bg-gray-700 rounded-full h-2 mx-auto mt-1">
               <div
                 className="bg-gradient-to-r from-orange-400 to-pink-500 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${getTotalProgress()}%` }}
