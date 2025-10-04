@@ -24,6 +24,7 @@ const upperBodyExercises = [
 export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
   const [completedSets, setCompletedSets] = useState<Record<string, boolean[]>>({});
   const [showTimer, setShowTimer] = useState(false);
+  const [restDuration, setRestDuration] = useState(30);
 
   const initializeExercise = (exerciseName: string, setCount: number) => {
     if (!completedSets[exerciseName]) {
@@ -46,8 +47,14 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
     }));
 
     if (!wasCompleted) {
+      setRestDuration(30);
       setShowTimer(true);
     }
+  };
+
+  const handleRestClick = () => {
+    setRestDuration(90);
+    setShowTimer(true);
   };
 
   const getTotalProgress = () => {
@@ -58,7 +65,7 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
 
   return (
     <div className="max-w-4xl mx-auto px-4">
-      {showTimer && <RestTimer onClose={() => setShowTimer(false)} />}
+      {showTimer && <RestTimer onClose={() => setShowTimer(false)} duration={restDuration} />}
 
       {/* Header - MATCHED TO LOWER BODY */}
       <div className="relative flex flex-col sm:flex-row items-center justify-center mb-6 sm:mb-8 gap-4">
@@ -85,6 +92,13 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
               />
             </div>
           </div>
+          {/* Rest Button */}
+          <Button
+            onClick={handleRestClick}
+            className="mt-4 bg-white/10 text-white border border-white/20 hover:bg-white/20"
+          >
+            Rest (1:30)
+          </Button>
         </div>
       </div>
       {/* END Header */}

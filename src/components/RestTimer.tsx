@@ -3,10 +3,11 @@ import { Timer, X } from 'lucide-react';
 
 interface RestTimerProps {
   onClose: () => void;
+  duration?: number;
 }
 
-export const RestTimer = ({ onClose }: RestTimerProps) => {
-  const [timeLeft, setTimeLeft] = useState(30);
+export const RestTimer = ({ onClose, duration = 30 }: RestTimerProps) => {
+  const [timeLeft, setTimeLeft] = useState(duration);
 
   useEffect(() => {
     if (timeLeft <= 0) {
@@ -44,7 +45,7 @@ export const RestTimer = ({ onClose }: RestTimerProps) => {
     });
   };
 
-  const progressPercentage = ((30 - timeLeft) / 30) * 100;
+  const progressPercentage = ((duration - timeLeft) / duration) * 100;
 
   return (
     <div className="fixed top-4 right-4 z-50 animate-fade-in">
