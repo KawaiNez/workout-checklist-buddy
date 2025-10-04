@@ -1,15 +1,6 @@
 
-import { Dumbbell } from 'lucide-react';
+import { Dumbbell, Target } from 'lucide-react';
 import { WorkoutType } from '@/pages/Index';
-
-const PeachIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 3c-1.5 0-2.5 1-2.5 2 0 0.5 0.2 1 0.5 1.4" />
-    <path d="M14 6.4c0.3-0.4 0.5-0.9 0.5-1.4 0-1-1-2-2.5-2" />
-    <circle cx="12" cy="14" r="7" />
-    <path d="M12 7v0.5" />
-  </svg>
-);
 
 interface WorkoutSelectorProps {
   onWorkoutSelect: (workout: WorkoutType) => void;
@@ -49,7 +40,7 @@ export const WorkoutSelector = ({ onWorkoutSelect }: WorkoutSelectorProps) => {
           className="group cursor-pointer bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl p-6 sm:p-8 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl"
         >
           <div className="bg-white/20 rounded-full w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-white/30 transition-colors">
-            <PeachIcon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+            <Target className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Lower Body</h2>
           <p className="text-sm sm:text-base text-white/90 mb-3 sm:mb-4">
