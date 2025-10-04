@@ -95,7 +95,7 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
           {/* Rest Button */}
           <Button
             onClick={handleRestClick}
-            className="mt-4 bg-white/10 text-white border border-white/20 hover:bg-white/20"
+            className="mt-4 bg-teal-500 hover:bg-teal-600 text-white"
           >
             Rest (1:30)
           </Button>
