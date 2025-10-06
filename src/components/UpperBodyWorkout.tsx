@@ -10,8 +10,8 @@ interface UpperBodyWorkoutProps {
 
 const upperBodyExercises = [
   { name: 'Shoulder Press', sets: 3, reps: 12 },
-  { name: 'Arnold Press/Lateral Raise', sets: 3, reps: 12 },
-  { name: 'Overhead Triceps Extension', sets: 3, reps: 12 },
+  { name: 'Lateral Raise', sets: 3, reps: 12 },
+  { name: 'Tricep pushdown dumbbell', sets: 3, reps: 12 },
   { name: 'Skull Crusher', sets: 3, reps: 12 },
   { name: 'Alternating Bicep Curl', sets: 3, reps: 12 },
   { name: 'Hammer Curls', sets: 3, reps: 12 },
