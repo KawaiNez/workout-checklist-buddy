@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Zap } from "lucide-react";
+import { ArrowLeft, Zap, Clock } from "lucide-react";
 import { ExerciseCard } from "@/components/ExerciseCard";
 import { RestTimer } from "@/components/RestTimer";
 import { Button } from "@/components/ui/button";
@@ -40,6 +40,7 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
     {}
   );
   const [showTimer, setShowTimer] = useState(false);
+  const [restDuration, setRestDuration] = useState(30);
 
   const initializeExercise = (exerciseName: string, setCount: number) => {
     if (!completedSets[exerciseName]) {
@@ -88,8 +89,14 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
     }));
 
     if (!wasCompleted) {
+      setRestDuration(30);
       setShowTimer(true);
     }
+  };
+
+  const handleRestClick = () => {
+    setRestDuration(90);
+    setShowTimer(true);
   };
 
   const getTotalProgress = () => {
@@ -102,7 +109,7 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
 
   return (
     <div className="max-w-4xl mx-auto px-4">
-      {showTimer && <RestTimer onClose={() => setShowTimer(false)} />}
+      {showTimer && <RestTimer onClose={() => setShowTimer(false)} duration={restDuration} />}
 
       {/* Header */}
       <div className="relative flex flex-col sm:flex-row items-center justify-center mb-6 sm:mb-8 gap-4">
@@ -136,8 +143,8 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
         </div>
       </div>
 
-      {/* Warm-up dialog */}
-      <div className="flex justify-center mb-6">
+      {/* Warm-up and Rest buttons */}
+      <div className="flex justify-center gap-4 mb-6">
         <Dialog>
           <DialogTrigger asChild>
           <Button className="bg-teal-500 hover:bg-teal-600 text-white w-full sm:w-auto">
@@ -251,7 +258,14 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
               </div>{" "}
             </div>{" "}
           </DialogContent>{" "}
-        </Dialog>{" "}
+        </Dialog>
+        <Button 
+          onClick={handleRestClick}
+          className="bg-teal-500 hover:bg-teal-600 text-white w-full sm:w-auto"
+        >
+          <Clock className="w-4 h-4 mr-2" />
+          Rest (1:30)
+        </Button>
       </div>
 
       {/* Exercise Cards */}
