@@ -10,6 +10,10 @@ export const RestTimer = ({ onClose, duration = 30 }: RestTimerProps) => {
   const [timeLeft, setTimeLeft] = useState(duration);
 
   useEffect(() => {
+    setTimeLeft(duration);
+  }, [duration]);
+
+  useEffect(() => {
     if (timeLeft <= 0) {
       playMellowAlarm(3); // Play mellow alarm for 3 seconds
       const timeout = setTimeout(() => {
