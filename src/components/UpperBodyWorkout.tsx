@@ -92,13 +92,21 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
               />
             </div>
           </div>
-          {/* Rest Button */}
-          <Button
-            onClick={handleRestClick}
-            className="mt-4 bg-teal-500 hover:bg-teal-600 text-white"
-          >
-            Rest (1:30)
-          </Button>
+          {/* Rest Button and Video Button */}
+          <div className="flex gap-2 mt-4">
+            <Button
+              onClick={handleRestClick}
+              className="bg-teal-500 hover:bg-teal-600 text-white"
+            >
+              Rest (1:30)
+            </Button>
+            <Button
+              onClick={() => window.open('https://www.youtube.com/watch?v=mf6CZ5_7dfc', '_blank')}
+              className="bg-purple-500 hover:bg-purple-600 text-white"
+            >
+              Watch Tutorial
+            </Button>
+          </div>
         </div>
       </div>
       {/* END Header */}
