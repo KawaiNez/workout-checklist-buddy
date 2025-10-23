@@ -143,8 +143,8 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
         </div>
       </div>
 
-      {/* Warm-up and Rest buttons */}
-      <div className="flex justify-center gap-4 mb-6">
+      {/* Warm-up, Rest, and Tutorial buttons */}
+      <div className="flex justify-center gap-4 mb-6 flex-wrap">
         <Dialog>
           <DialogTrigger asChild>
           <Button className="bg-teal-500 hover:bg-teal-600 text-white w-full sm:w-auto">
@@ -265,6 +265,12 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
         >
           <Clock className="w-4 h-4 mr-2" />
           Rest (1:30)
+        </Button>
+        <Button
+          onClick={() => window.open('https://www.youtube.com/watch?v=QLkLKfL_7F0', '_blank')}
+          className="bg-purple-500 hover:bg-purple-600 text-white w-full sm:w-auto"
+        >
+          Watch Tutorial
         </Button>
       </div>
 
