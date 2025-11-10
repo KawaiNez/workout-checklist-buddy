@@ -16,15 +16,24 @@ interface LowerBodyWorkoutProps {
 }
 
 const lowerBodyExercises = [
-  { name: "Glute Bridges/Hip Thrusts", sets: 3, reps: "15-20" },
-  { name: "Dumbbell Leg Raises", sets: 3, reps: 15 },
+  // 1️⃣ Main compounds – quads + glutes + overall growth
+  { name: "Squats", sets: 3, reps: "8-12" },
+  { name: "RDL", sets: 3, reps: "8-12" },
+
+  // 2️⃣ Glute / butt focus
+  { name: "Glute Bridges/Hip Thrusts", sets: 3, reps: "12-15" },
+  { name: "Leg ext/Bulgarian split squats", sets: 3, reps: "10-12" },
+
+  // 3️⃣ Hip dip area – side glutes / glute med
+  { name: "Side Leg Raise", sets: 3, reps: "15-20" },
+
+  // 4️⃣ Calves
+  { name: "Calf Raise", sets: 3, reps: "12-15" },
+
+  // 5️⃣ Core finisher (toned abs without ruining big lifts)
+  { name: "Dumbbell Leg Raises", sets: 3, reps: "12-15" },
   { name: "Russian Twists", sets: 3, reps: "20 (10 each side)" },
-  { name: "Cable crunches with dumbbell", sets: 3, reps: 12 },
-  { name: "Leg ext/Bulgarian split squats", sets: 3, reps: 15 },
-  { name: "RDL", sets: 3, reps: "10-12" },
-  { name: "Squats", sets: 3, reps: "12-15" },
-  { name: "Side Leg Raise", sets: 3, reps: 12 },
-  { name: "Calf Raise", sets: 3, reps: 15 },
+  { name: "Cable crunches with dumbbell", sets: 3, reps: "10-12" },
   { name: "Plank Hold", sets: 3, reps: "30-45 sec" },
 ];
 
