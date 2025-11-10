@@ -9,16 +9,23 @@ interface UpperBodyWorkoutProps {
 }
 
 const upperBodyExercises = [
-  { name: 'Shoulder Press', sets: 3, reps: 12 },
-  { name: 'Lateral Raise', sets: 3, reps: 12 },
-  { name: 'Tricep pushdown dumbbell', sets: 3, reps: 12 },
-  { name: 'Skull Crusher', sets: 3, reps: 12 },
-  { name: 'Alternating Bicep Curl', sets: 3, reps: 12 },
-  { name: 'Hammer Curls', sets: 3, reps: 12 },
-  { name: 'Dumbbell Bent Over Row', sets: 3, reps: 12 },
-  { name: 'Reverse Fly', sets: 3, reps: 12 },
-  { name: 'Forearm Twist', sets: 3, reps: 12 },
-  { name: 'Dumbbell Shrug', sets: 3, reps: 12 },
+  // 1️⃣ Start with biceps (your priority)
+  { name: 'Hammer Curl or Bicep Curl', sets: 3, reps: '10-12' },
+
+  // 2️⃣ Big compounds for shoulders + back
+  { name: 'Shoulder Press', sets: 3, reps: '8-12' },
+  { name: 'Dumbbell Bent Over Row', sets: 3, reps: '8-12' },
+
+  // 3️⃣ Shape & balance (delts + rear delts)
+  { name: 'Lateral Raise', sets: 3, reps: '12-15' },
+  { name: 'Reverse Fly', sets: 3, reps: '12-15' },
+
+  // 4️⃣ Direct triceps for definition
+  { name: 'Skullcrusher or tricep pushdown', sets: 3, reps: '10-12' },
+
+  // 5️⃣ Optional "detail" work
+  { name: 'Dumbbell Shrug', sets: 2, reps: '12-15', optional: true },
+  { name: 'Forearm Twist', sets: 2, reps: '12-15', optional: true },
 ];
 
 export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {

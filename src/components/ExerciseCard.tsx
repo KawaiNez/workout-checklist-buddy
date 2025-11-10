@@ -5,7 +5,10 @@ interface Exercise {
   name: string;
   sets: number;
   reps: string | number;
+  optional?: boolean;
 }
+
+export type { Exercise };
 
 interface ExerciseCardProps {
   exercise: Exercise;
