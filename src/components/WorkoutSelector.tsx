@@ -28,10 +28,10 @@ export const WorkoutSelector = ({ onWorkoutSelect }: WorkoutSelectorProps) => {
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Upper Body</h2>
           <p className="text-sm sm:text-base text-white/90 mb-3 sm:mb-4">
-            Shoulders, Biceps & Triceps
+            Biceps, Shoulders, Back & Triceps
           </p>
           <div className="text-xs sm:text-sm text-white/80">
-            10 exercises • 30 total sets
+            8 exercises • 22 total sets
           </div>
         </div>
 
