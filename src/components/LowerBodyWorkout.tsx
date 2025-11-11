@@ -26,9 +26,6 @@ const lowerBodyExercises = [
   // 3️⃣ Balance quads & hamstrings
   { name: "Leg Extensions DB", sets: 2, reps: "12-15" }, // keep, but slightly reduced
 
-  // 3️⃣ Hip dip area – side glutes / glute med
-  { name: "Side Leg Raise", sets: 3, reps: "15-20" },
-
   // 4️⃣ Calves
   { name: "Calf Raise", sets: 3, reps: "12-15" },
 
