@@ -24,7 +24,7 @@ const upperBodyExercises = [
 
   // 4️⃣ Triceps
   { name: 'Triceps Pushdown', sets: 3, reps: '10-12' },
-  { name: 'Skullcrusher', sets: 2-3, reps: '10-12' },
+  { name: 'Skullcrusher', sets: 3, reps: '10-12' },
 
   // 5️⃣ Optional “detail” work
   { name: 'Dumbbell Shrug', sets: 2, reps: '12-15', optional: true },
