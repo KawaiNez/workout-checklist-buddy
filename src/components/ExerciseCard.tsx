@@ -29,7 +29,7 @@ export const ExerciseCard = ({ exercise, completedSets, onSetToggle, color, disa
       {disabled && (
         <div className="mb-3 text-center">
           <span className="text-xs sm:text-sm text-orange-400 bg-orange-400/10 px-2 sm:px-3 py-1 rounded-full">
-            Choose 3 from 4 abs exercises - limit reached
+            Choose 2 from 3 abs exercises - limit reached
           </span>
         </div>
       )}
