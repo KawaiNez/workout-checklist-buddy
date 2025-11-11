@@ -39,9 +39,9 @@ const lowerBodyExercises = [
 ];
 
 const absExercises = [
+  "Dumbbell Crunch",
   "Dumbbell Leg Raises",
   "Russian Twists",
-  "Cable crunches with dumbbell",
 ];
 
 export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
@@ -75,7 +75,7 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
   const isAbsExerciseDisabled = (exerciseName: string) => {
     const completedAbs = getCompletedAbsExercises();
     const isThisExerciseCompleted = completedAbs.includes(exerciseName);
-    return completedAbs.length >= 3 && !isThisExerciseCompleted;
+    return completedAbs.length >= 2 && !isThisExerciseCompleted;
   };
 
   const handleSetToggle = (exerciseName: string, setIndex: number) => {
