@@ -21,8 +21,10 @@ const lowerBodyExercises = [
   { name: "RDL", sets: 3, reps: "8-12" },
 
   // 2️⃣ Glute / butt focus
-  { name: "Glute Bridges/Hip Thrusts", sets: 3, reps: "12-15" },
-  { name: "Leg ext/Bulgarian split squats", sets: 3, reps: "10-12" },
+  { name: "Glute Bridges", sets: 3, reps: "12-15" },
+ 
+  // 3️⃣ Balance quads & hamstrings
+  { name: "Leg Extensions DB", sets: 2, reps: "12-15" }, // keep, but slightly reduced
 
   // 3️⃣ Hip dip area – side glutes / glute med
   { name: "Side Leg Raise", sets: 3, reps: "15-20" },
@@ -30,18 +32,16 @@ const lowerBodyExercises = [
   // 4️⃣ Calves
   { name: "Calf Raise", sets: 3, reps: "12-15" },
 
-  // 5️⃣ Core finisher (toned abs without ruining big lifts)
+  // 6️⃣  Core finisher (toned abs without ruining big lifts)
+  { name: "Dumbbell Crunch", sets: 3, reps: "10-12" },
   { name: "Dumbbell Leg Raises", sets: 3, reps: "12-15" },
   { name: "Russian Twists", sets: 3, reps: "20 (10 each side)" },
-  { name: "Cable crunches with dumbbell", sets: 3, reps: "10-12" },
-  { name: "Plank Hold", sets: 3, reps: "30-45 sec" },
 ];
 
 const absExercises = [
   "Dumbbell Leg Raises",
   "Russian Twists",
   "Cable crunches with dumbbell",
-  "Plank Hold",
 ];
 
 export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
