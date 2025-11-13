@@ -12,7 +12,7 @@ const upperBodyExercises = [
   // 1️⃣ Big compounds first (shoulders + back)
   { name: 'Seated Dumbbell Shoulder Press', sets: 3, reps: '8-12' },
   { name: 'Dumbbell Bent Over Row', sets: 3, reps: '8-12' },
-  { name: 'Lat Pulldown', sets: 3, reps: '8-10' },
+  { name: 'Dumbbell Pullovers', sets: 3, reps: '8-10' },
 
   // 2️⃣ Biceps focus
   { name: 'Bicep Curl', sets: 3, reps: '10-12' },
@@ -67,8 +67,16 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
   };
 
   const getTotalProgress = () => {
-    const totalSets = upperBodyExercises.reduce((sum, ex) => sum + ex.sets, 0);
-    const completedCount = Object.values(completedSets).flat().filter(Boolean).length;
+    const totalSets = upperBodyExercises
+      .filter(ex => !ex.optional)
+      .reduce((sum, ex) => sum + ex.sets, 0);
+    const completedCount = Object.entries(completedSets)
+      .filter(([name]) => {
+        const exercise = upperBodyExercises.find(ex => ex.name === name);
+        return exercise && !exercise.optional;
+      })
+      .flatMap(([_, sets]) => sets)
+      .filter(Boolean).length;
     return Math.round((completedCount / totalSets) * 100);
   };
 
