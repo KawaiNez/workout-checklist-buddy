@@ -14,9 +14,8 @@ const upperBodyExercises = [
   { name: 'Dumbbell Bent Over Row', sets: 3, reps: '8-12' },
   { name: 'Lat Pulldown', sets: 3, reps: '8-10' },
 
-  // 2️⃣ Biceps focus (your priority)
+  // 2️⃣ Biceps focus
   { name: 'Bicep Curl', sets: 3, reps: '10-12' },
-  { name: 'Hammer Curl', sets: 3, reps: '10-12' },
 
   // 3️⃣ Delts & rear delts (shape + balance)
   { name: 'Lateral Raise', sets: 3, reps: '12-15' },
@@ -24,11 +23,10 @@ const upperBodyExercises = [
 
   // 4️⃣ Triceps
   { name: 'Triceps Pushdown', sets: 3, reps: '10-12' },
-  { name: 'Skullcrusher', sets: 3, reps: '10-12' },
 
-  // 5️⃣ Optional “detail” work
-  { name: 'Dumbbell Shrug', sets: 2, reps: '12-15', optional: true },
-  { name: 'Forearm Twist', sets: 2, reps: '12-15', optional: true },
+  // 5️⃣ Can alternate these
+  { name: 'Hammer Curl', sets: 3, reps: '10-12', optional: true },
+  { name: 'Skullcrusher', sets: 3, reps: '10-12', optional: true },
 ];
 
 
