@@ -130,8 +130,9 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
 
       {/* Exercise Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {upperBodyExercises.map((exercise) => {
+        {upperBodyExercises.map((exercise, index) => {
           initializeExercise(exercise.name, exercise.sets);
+          const isHammerCurl = exercise.name === 'Hammer Curl';
           return (
             <ExerciseCard
               key={exercise.name}
@@ -139,6 +140,7 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
               completedSets={completedSets[exercise.name] || []}
               onSetToggle={(setIndex) => handleSetToggle(exercise.name, setIndex)}
               color="from-cyan-500 to-teal-600"
+              className={isHammerCurl ? 'md:col-start-1' : ''}
             />
           );
         })}
