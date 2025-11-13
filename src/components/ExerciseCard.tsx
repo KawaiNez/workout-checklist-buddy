@@ -16,16 +16,17 @@ interface ExerciseCardProps {
   onSetToggle: (setIndex: number) => void;
   color: string;
   disabled?: boolean;
+  className?: string;
 }
 
-export const ExerciseCard = ({ exercise, completedSets, onSetToggle, color, disabled = false }: ExerciseCardProps) => {
+export const ExerciseCard = ({ exercise, completedSets, onSetToggle, color, disabled = false, className = '' }: ExerciseCardProps) => {
   const completedCount = completedSets.filter(Boolean).length;
   const progressPercentage = (completedCount / exercise.sets) * 100;
 
   return (
     <div className={`bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/20 transition-all duration-300 ${
       disabled ? 'opacity-50 bg-gray-800/20' : ''
-    }`}>
+    } ${className}`}>
       {disabled && (
         <div className="mb-3 text-center">
           <span className="text-xs sm:text-sm text-orange-400 bg-orange-400/10 px-2 sm:px-3 py-1 rounded-full">
