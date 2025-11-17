@@ -12,7 +12,7 @@ const upperBodyExercises = [
   // 1️⃣ Big compounds first (shoulders + back)
   { name: 'Seated Dumbbell Shoulder Press', sets: 3, reps: '8-12' },
   { name: 'Dumbbell Bent Over Row', sets: 3, reps: '8-12' },
-  { name: 'Dumbbell Pullovers', sets: 3, reps: '8-10' },
+  { name: 'Renegade Row', sets: 3, reps: '8-10' },
 
   // 2️⃣ Biceps focus
   { name: 'Bicep Curl', sets: 3, reps: '10-12' },
