@@ -14,12 +14,12 @@ const upperBodyExercises = [
   { name: 'Dumbbell Bent Over Row', sets: 3, reps: '8-12' },
   { name: 'Renegade Row', sets: 3, reps: '8-10' },
 
-  // 2️⃣ Biceps focus
-  { name: 'Bicep Curl', sets: 3, reps: '10-12' },
-
-  // 3️⃣ Delts & rear delts (shape + balance)
+   // 2️⃣ Delts & rear delts (shape + balance)
   { name: 'Lateral Raise', sets: 3, reps: '12-15' },
   { name: 'Rear Delt Fly', sets: 3, reps: '12-15' },
+
+  // 3️⃣ Biceps focus
+  { name: 'Bicep Curl', sets: 3, reps: '10-12' },
 
   // 4️⃣ Triceps
   { name: 'Triceps Pushdown', sets: 3, reps: '10-12' },
