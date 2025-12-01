@@ -31,8 +31,8 @@ const lowerBodyExercises = [
 
   // 6️⃣  Core finisher (toned abs without ruining big lifts)
   { name: "Dumbbell Crunch", sets: 3, reps: "10-12" },
-  { name: "Dumbbell Leg Raises", sets: 3, reps: "12-15" },
-  { name: "Russian Twists", sets: 3, reps: "20 (10 each side)" },
+  { name: "Dumbbell Leg Raises", sets: 3, reps: "12-15", optional: true },
+  { name: "Russian Twists", sets: 3, reps: "20 (10 each side)", optional: true },
 ];
 
 const absExercises = [
@@ -106,10 +106,17 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
   };
 
   const getTotalProgress = () => {
-    const totalSets = lowerBodyExercises.reduce((sum, ex) => sum + ex.sets, 0);
-    const completedCount = Object.values(completedSets)
-      .flat()
-      .filter(Boolean).length;
+    const totalSets = lowerBodyExercises
+      .filter(ex => !ex.optional)
+      .reduce((sum, ex) => sum + ex.sets, 0);
+    
+    const completedCount = lowerBodyExercises
+      .filter(ex => !ex.optional)
+      .reduce((sum, ex) => {
+        const sets = completedSets[ex.name] || [];
+        return sum + sets.filter(Boolean).length;
+      }, 0);
+    
     return Math.round((completedCount / totalSets) * 100);
   };
 
