@@ -305,6 +305,7 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
                   ? isAbsExerciseDisabled(exercise.name)
                   : false
               }
+              className={exercise.optional ? "mt-8" : ""}
             />
           );
         })}
