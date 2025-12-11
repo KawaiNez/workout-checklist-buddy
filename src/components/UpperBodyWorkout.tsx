@@ -10,22 +10,20 @@ interface UpperBodyWorkoutProps {
 
 const upperBodyExercises = [
   // 1️⃣ Big compounds first (shoulders + back)
-  { name: 'Seated Dumbbell Shoulder Press', sets: 3, reps: '8-12' },
   { name: 'Supported Single-Arm Dumbbell Row', sets: 3, reps: '8-12' },
   { name: 'Standing Row w/ Wall Support', sets: 2, reps: '8-10' },
 
-  // 2️⃣ Delts & rear delts (shape + balance)
-  { name: 'Lateral Raise', sets: 2, reps: '12-15' },
-
-  // 3️⃣ Biceps focus
+    // 3️⃣ Biceps focus
   { name: 'Bicep Curl', sets: 3, reps: '10-12' },
+  { name: 'Hammer Curl', sets: 3, reps: '10-12' },
 
   // 4️⃣ Triceps
-  { name: 'Triceps Pushdown', sets: 3, reps: '10-12' },
+  { name: 'Triceps Kickbacks', sets: 3, reps: '10-12' },
+  { name: 'Close-Grip Dumbbell Press', sets: 3, reps: '10-12'},
 
-  // 5️⃣ Can alternate these
-  { name: 'Hammer Curl', sets: 3, reps: '10-12', optional: true },
-  { name: 'Skullcrusher', sets: 3, reps: '10-12', optional: true },
+  // 2️⃣ Delts & rear delts (shape + balance)
+  { name: 'Seated Dumbbell Shoulder Press (either or per week)', sets: 3, reps: '8-12' },
+  { name: 'Lateral Raise', sets: 2, reps: '12-15',optional: true },
 ];
 
 
