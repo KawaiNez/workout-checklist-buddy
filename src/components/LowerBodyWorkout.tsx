@@ -17,14 +17,14 @@ interface LowerBodyWorkoutProps {
 
 const lowerBodyExercises = [
   // 1️⃣ Main compounds – quads + glutes + overall growth
-  { name: "Squats", sets: 3, reps: "8-12" },
-  { name: "RDL", sets: 3, reps: "8-12" },
+  { name: "Squats", sets: 2, reps: "8-12" },
+  { name: "RDL", sets: 2, reps: "8-12" },
 
   // 2️⃣ Glute / butt focus
   { name: "Glute Bridges", sets: 3, reps: "12-15" },
 
   // 3️⃣ Core finisher (toned abs without ruining big lifts)
-  { name: "Dumbbell Crunch", sets: 3, reps: "10-12" },
+  { name: "Dumbbell Crunch", sets: 2, reps: "10-12" },
   { name: "Dumbbell Leg Raises", sets: 3, reps: "12-15", optional: true },
   
   { name: "Russian Twists", sets: 3, reps: "20 (10 each side)", optional: true },
