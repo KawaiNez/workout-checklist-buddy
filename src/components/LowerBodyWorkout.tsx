@@ -52,32 +52,7 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
     }
   };
 
-  const getCompletedAbsExercises = () => {
-    return absExercises.filter((exerciseName) => {
-      const sets = completedSets[exerciseName] || [];
-      const exercise = lowerBodyExercises.find(
-        (ex) => ex.name === exerciseName
-      );
-      return (
-        sets.length === exercise?.sets && sets.every((set) => set === true)
-      );
-    });
-  };
-
-  const isAbsExerciseDisabled = (exerciseName: string) => {
-    const completedAbs = getCompletedAbsExercises();
-    const isThisExerciseCompleted = completedAbs.includes(exerciseName);
-    return completedAbs.length >= 2 && !isThisExerciseCompleted;
-  };
-
   const handleSetToggle = (exerciseName: string, setIndex: number) => {
-    if (
-      absExercises.includes(exerciseName) &&
-      isAbsExerciseDisabled(exerciseName)
-    ) {
-      return;
-    }
-
     const currentSets = completedSets[exerciseName] || [];
     const wasCompleted = currentSets[setIndex];
 
@@ -295,11 +270,6 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
                 handleSetToggle(exercise.name, setIndex)
               }
               color="from-purple-500 to-violet-600"
-              disabled={
-                absExercises.includes(exercise.name)
-                  ? isAbsExerciseDisabled(exercise.name)
-                  : false
-              }
               className={exercise.optional ? "mt-8" : ""}
             />
           );
