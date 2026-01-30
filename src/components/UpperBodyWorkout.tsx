@@ -17,7 +17,7 @@ const upperBodyExercises = [
   { name: 'Hammer Curl', sets: 2, reps: '10-12' },
   // 4️⃣ Triceps
   { name: 'Triceps Kickbacks', sets: 2, reps: '10-12' },
-  { name: 'Close-Grip Dumbbell Press', sets: 3, reps: '10-12'},
+  { name: 'Close-Grip Dumbbell Press', sets: 2, reps: '10-12'},
   // 2️⃣ Delts & rear delts (shape + balance)
   { name: 'Seated Dumbbell Shoulder Press (x1 week)', sets: 2, reps: '8-12' },
   { name: 'Lateral Raise', sets: 2, reps: '12-15',optional: true },
