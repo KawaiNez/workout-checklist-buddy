@@ -27,13 +27,13 @@ const lowerBodyExercises = [
   { name: "Dumbbell Crunch", sets: 2, reps: "10-12" },
   { name: "Dumbbell Leg Raises", sets: 2, reps: "12-15", optional: true },
   
-  { name: "Russian Twists", sets: 2, reps: "20 (10 each side)", optional: true },
+  { name: "Dead Bug", sets: 2, reps: "12", optional: true },
 ];
 
 const absExercises = [
   "Dumbbell Crunch",
   "Dumbbell Leg Raises",
-  "Russian Twists",
+  "Dead Bug",
 ];
 
 export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
