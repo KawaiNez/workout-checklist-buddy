@@ -28,6 +28,7 @@ const lowerBodyExercises = [
   { name: "Dumbbell Leg Raises", sets: 2, reps: "12-15", optional: true },
   
   { name: "Dead Bug", sets: 2, reps: "12", optional: true },
+  { name: "Plank", sets: 2, reps: "1 min hold", optional: true },
 ];
 
 const absExercises = [
@@ -65,7 +66,8 @@ export const LowerBodyWorkout = ({ onBack }: LowerBodyWorkoutProps) => {
     }));
 
     if (!wasCompleted) {
-      setRestDuration(30);
+      const duration = exerciseName === "Plank" ? 60 : 30;
+      setRestDuration(duration);
       setShowTimer(true);
     }
   };
