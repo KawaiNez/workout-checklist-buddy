@@ -123,7 +123,7 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
       {/* END Header */}
 
       {/* Exercise Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 gap-4 sm:gap-6">
         {upperBodyExercises.map((exercise, index) => {
           initializeExercise(exercise.name, exercise.sets);
           const isHammerCurl = exercise.name === 'Hammer Curl';
