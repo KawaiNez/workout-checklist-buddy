@@ -9,18 +9,19 @@ interface UpperBodyWorkoutProps {
 }
 
 const upperBodyExercises = [
-  // 1️⃣ Big compounds first (shoulders + back)
+  // Row 1: Back compounds
   { name: 'Supported Single-Arm Dumbbell Row', sets: 2, reps: '8-12' },
   { name: 'Standing Row w/ Wall Support', sets: 2, reps: '8-10' },
-  // 3️⃣ Biceps focus
-  { name: 'Bicep Curl', sets: 2, reps: '10-12' },
+  // Row 2: Bicep Curl (full width)
+  { name: 'Bicep Curl', sets: 2, reps: '10-12', fullWidth: true },
+  // Row 3: Arms
   { name: 'Hammer Curl', sets: 2, reps: '10-12' },
-  // 4️⃣ Triceps
   { name: 'Triceps Kickbacks', sets: 2, reps: '10-12' },
-  { name: 'Close-Grip Dumbbell Press', sets: 2, reps: '10-12'},
-  // 2️⃣ Delts & rear delts (shape + balance)
+  // Row 4: Shoulders
+  { name: 'Close-Grip Dumbbell Press', sets: 2, reps: '10-12' },
   { name: 'Seated Dumbbell Shoulder Press (x1 week)', sets: 2, reps: '8-12' },
-  { name: 'Lateral Raise', sets: 2, reps: '12-15',optional: true },
+  // Row 5: Lateral Raise (full width, optional)
+  { name: 'Lateral Raise', sets: 2, reps: '12-15', optional: true, fullWidth: true },
 ];
 
 
@@ -124,9 +125,8 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
 
       {/* Exercise Cards */}
       <div className="grid grid-cols-2 gap-4 sm:gap-6">
-        {upperBodyExercises.map((exercise, index) => {
+        {upperBodyExercises.map((exercise) => {
           initializeExercise(exercise.name, exercise.sets);
-          const isHammerCurl = exercise.name === 'Hammer Curl';
           return (
             <ExerciseCard
               key={exercise.name}
@@ -134,7 +134,7 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
               completedSets={completedSets[exercise.name] || []}
               onSetToggle={(setIndex) => handleSetToggle(exercise.name, setIndex)}
               color="from-cyan-500 to-teal-600"
-              className={isHammerCurl ? 'md:col-start-1' : ''}
+              className={exercise.fullWidth ? 'col-span-2' : ''}
             />
           );
         })}
