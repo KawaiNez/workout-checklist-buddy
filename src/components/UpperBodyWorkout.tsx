@@ -9,19 +9,18 @@ interface UpperBodyWorkoutProps {
 }
 
 const upperBodyExercises = [
-  // Row 1: Back compounds
+  // Row 1
   { name: 'Supported Single-Arm Dumbbell Row', sets: 2, reps: '8-12' },
   { name: 'Standing Row w/ Wall Support', sets: 2, reps: '8-10' },
-  // Row 2: Bicep Curl (full width)
-  { name: 'Bicep Curl', sets: 2, reps: '10-12', fullWidth: true },
-  // Row 3: Arms
+  // Row 2
+  { name: 'Bicep Curl', sets: 2, reps: '10-12' },
   { name: 'Hammer Curl', sets: 2, reps: '10-12' },
+  // Row 3
   { name: 'Triceps Kickbacks', sets: 2, reps: '10-12' },
-  // Row 4: Shoulders
   { name: 'Close-Grip Dumbbell Press', sets: 2, reps: '10-12' },
+  // Row 4
   { name: 'Seated Dumbbell Shoulder Press (x1 week)', sets: 2, reps: '8-12' },
-  // Row 5: Lateral Raise (full width, optional)
-  { name: 'Lateral Raise', sets: 2, reps: '12-15', optional: true, fullWidth: true },
+  { name: 'Lateral Raise', sets: 2, reps: '12-15', optional: true },
 ];
 
 
@@ -134,7 +133,7 @@ export const UpperBodyWorkout = ({ onBack }: UpperBodyWorkoutProps) => {
               completedSets={completedSets[exercise.name] || []}
               onSetToggle={(setIndex) => handleSetToggle(exercise.name, setIndex)}
               color="from-cyan-500 to-teal-600"
-              className={exercise.fullWidth ? 'col-span-2' : ''}
+              className=""
             />
           );
         })}
